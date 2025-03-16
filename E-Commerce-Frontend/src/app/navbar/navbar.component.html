@@ -1,1 +1,28 @@
-<p>navbar works!</p>
+<div class="fixed top-0 z-50 right-0 left-0 bg-[#69f0ae] text-gray-800">
+    <div class="h-16 items-center justify-between flex">
+        <div class="flex items-center">
+            <div class="mr-5">
+                <img class="h-15 w-15 rounded-full"
+                    src="https://img.freepik.com/premium-psd/shopping-cart-ecommerce-market-3d-icon_133840-7.jpg"
+                    alt="EcoBazaar Logo">
+            </div>
+    
+            <div>
+                <div class="flex space-x-4">
+                    <a class="text-green-800" routerLink="/">EcoBazaar</a>
+                    <div>
+                        <button (click)="openNavbarContent('men')" mat-button>Men</button>
+                    </div>
+                    <div>
+                        <button (click)="openNavbarContent('women')" mat-button>Women</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="flex items-center">
+            
+        </div>
+    </div>
+</div>
