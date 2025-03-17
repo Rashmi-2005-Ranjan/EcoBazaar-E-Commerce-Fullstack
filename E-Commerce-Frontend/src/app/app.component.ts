@@ -4,9 +4,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HomeComponent,NavbarComponent],
+  imports: [HomeComponent, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'E-Commerce-Frontend';

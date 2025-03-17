@@ -4,11 +4,11 @@ import { HomeProductCardComponent } from '../home-product-card/home-product-card
 
 @Component({
   selector: 'app-product-slider',
-  imports: [NgFor,HomeProductCardComponent],
+  imports: [NgFor, HomeProductCardComponent],
   templateUrl: './product-slider.component.html',
-  styleUrl: './product-slider.component.css'
+  styleUrl: './product-slider.component.css',
 })
 export class ProductSliderComponent {
-  @Input() title:any;
-  @Input() products:any;
+  @Input() title: any;
+  @Input() products: any;
 }

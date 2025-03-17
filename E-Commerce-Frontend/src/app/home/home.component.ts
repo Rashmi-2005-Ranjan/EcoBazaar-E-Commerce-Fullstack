@@ -10,21 +10,21 @@ import { mensShoesPage1 } from '../../Data/shoes';
 
 @Component({
   selector: 'app-home',
-  imports: [MainCarouselComponent,ProductSliderComponent],
+  imports: [MainCarouselComponent, ProductSliderComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  menJeans:any;
-  womenGouns:any;
-  lehangaCholi:any;
-  menKurtas:any;
-  shoes:any;
-  ngOnInit(){
-    this.menJeans=menJeans.slice(0,5);
+  menJeans: any;
+  womenGouns: any;
+  lehangaCholi: any;
+  menKurtas: any;
+  shoes: any;
+  ngOnInit() {
+    this.menJeans = menJeans.slice(0, 5);
     this.womenGouns = gounsPage1.slice(0, 5);
-    this.lehangaCholi = lehngacholiPage2.slice(0,5);
-    this.menKurtas=mens_kurta.slice(0,5);
-    this.shoes=mensShoesPage1.slice(0,5);
+    this.lehangaCholi = lehngacholiPage2.slice(0, 5);
+    this.menKurtas = mens_kurta.slice(0, 5);
+    this.shoes = mensShoesPage1.slice(0, 5);
   }
 }
