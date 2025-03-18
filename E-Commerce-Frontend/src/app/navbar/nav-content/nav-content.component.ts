@@ -15,7 +15,5 @@ export class NavContentComponent {
 
   ngOnInit() {
     this.category = navigation;
-    console.log(navigation)
-    console.log(this.selectedSection);
   }
 }

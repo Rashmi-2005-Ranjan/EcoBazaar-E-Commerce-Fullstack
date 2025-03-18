@@ -1,6 +1,6 @@
 export const navigation = {
-    categories: [
-      {
+    
+    women:  {
         id: 'women',
         name: 'Women',
         featured: [
@@ -59,7 +59,7 @@ export const navigation = {
           },
         ],
       },
-      {
+      men:{
         id: 'men',
         name: 'Men',
         featured: [
@@ -116,9 +116,5 @@ export const navigation = {
           },
         ],
       },
-    ],
-    pages: [
-      { name: 'Company', id: '/' },
-      { name: 'Stores', id: '/' },
-    ],
+    
   }
