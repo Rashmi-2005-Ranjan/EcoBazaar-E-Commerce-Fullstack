@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './Components/home/home.component';
-import { NavbarComponent } from './Components/share/navbar/navbar.component';
-import { FooterComponent } from './Components/share/footer/footer.component';
+import { HomeComponent } from './Modules/home/home.component';
+import { NavbarComponent } from './Modules/share/navbar/navbar.component';
+import { FooterComponent } from './Modules/share/footer/footer.component';
+
 
 
 @Component({
@@ -11,5 +12,4 @@ import { FooterComponent } from './Components/share/footer/footer.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'E-Commerce-Frontend';
 }
