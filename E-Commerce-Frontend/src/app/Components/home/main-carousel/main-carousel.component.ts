@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { homeCarouselData } from '../../../Data/mainCarousel';
 import { NgFor } from '@angular/common';
+import { homeCarouselData } from '../../../../Data/mainCarousel';
 
 @Component({
   selector: 'app-main-carousel',

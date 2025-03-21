@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
-import { HomeProductCardComponent } from './home-product-card/home-product-card.component';
+import { menJeans } from '../../../Data/Men/men_jeans';
+import { gounsPage1 } from '../../../Data/Gouns/gouns';
+import { lehngacholiPage2 } from '../../../Data/Saree/lenghaCholiPage2';
+import { mens_kurta } from '../../../Data/Men/men_kurta';
+import { mensShoesPage1 } from '../../../Data/shoes';
 import { ProductSliderComponent } from './product-slider/product-slider.component';
-import { menJeans } from '../../Data/Men/men_jeans';
-import { gounsPage1 } from '../../Data/Gouns/gouns';
-import { lehngacholiPage2 } from '../../Data/Saree/lenghaCholiPage2';
-import { mens_kurta } from '../../Data/Men/men_kurta';
-import { mensShoesPage1 } from '../../Data/shoes';
+
 
 @Component({
   selector: 'app-home',
