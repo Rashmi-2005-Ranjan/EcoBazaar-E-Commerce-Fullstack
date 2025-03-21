@@ -1,0 +1,61 @@
+<div class=" bg-black text-white">
+    <main class="px-4 sm:px-6 lg:px-40 pb-10">
+      <!-- Header Section -->
+      <div class="flex justify-between border-b border-gray-700 pb-6 pt-12 items-baseline">
+        <h1 class="text-4xl font-bold">Products</h1>
+        <div class="flex items-center">
+          <div>
+            <button mat-button [matMenuTriggerFor]="sortMenu" class="text-white">
+              Sort
+            </button>
+            <mat-menu #sortMenu="matMenu">
+              <button mat-menu-item>Price: high-low</button>
+              <button mat-menu-item>Price: low-high</button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Filters and Products Section -->
+      <section class="pt-6">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <!-- Filters Section -->
+          <div class="lg:col-span-1 border-r border-gray-700 pr-4 hidden lg:block">
+            <div class="flex items-center justify-between mb-4">
+              <p class="text-lg font-semibold">Filters</p>
+              <mat-icon>filter_list</mat-icon>
+            </div>
+            <form>
+              <div *ngFor="let item of filterData">
+                <div class="border-b border-gray-700 py-4">
+                  <span class="font-medium">{{ item.name }}</span>
+                  <div class="pt-2">
+                    <div *ngFor="let option of item.options">
+                      <div class="flex items-center space-x-2">
+                        <mat-checkbox
+                          [name]="item.id"
+                          [value]="option.value"
+                          id="'filter-' + option.value"
+                        >
+                        </mat-checkbox>
+                        <span class="text-sm text-gray-300">{{ option.label }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+  
+          <!-- Products Section -->
+          <div class="lg:col-span-4">
+            <h2 class="text-2xl font-semibold mb-4">Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <!-- Product cards go here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
