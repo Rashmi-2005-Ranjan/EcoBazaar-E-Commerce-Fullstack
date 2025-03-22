@@ -37,6 +37,7 @@
                         [name]="item.id"
                         [value]="option.value"
                         id="'filter-' + option.value"
+                        (click)="handleMultileSelectFilter(option.value,item.id)"
                       >
                       </mat-checkbox>
                       <span class="text-sm text-gray-300">{{ option.label }}</span>
@@ -57,6 +58,7 @@
                         [name]="item.id"
                         [value]="option.value"
                         id="'filter-' + option.value"
+                        (click)="handleSingleSelectFilter(option.value,item.id)"
                       >
                       </mat-radio-button>
                       <span class="text-sm text-gray-300">{{ option.label }}</span>
