@@ -6,6 +6,7 @@ import { NavContentComponent } from './Components/navbar/nav-content/nav-content
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { ProductCardComponent } from './Components/product-card/product-card.component';
 
 
 
@@ -18,10 +19,12 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatMenuModule,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductCardComponent
   ],
   exports:[
     NavbarComponent,FooterComponent,
+    ProductCardComponent
   ]
 })
 export class ShareModule { }

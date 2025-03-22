@@ -8,7 +8,8 @@ import { ProductsComponent } from './Components/products/products.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import {MatRadioModule} from '@angular/material/radio';
+import { ShareModule } from '../share/share.module';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule,
+    ShareModule
   ],
   exports:[
     FeaturesComponent,
@@ -32,7 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ShareModule
   ]
 })
 export class FeatureModule { }
