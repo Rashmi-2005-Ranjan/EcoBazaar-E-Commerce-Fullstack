@@ -2,6 +2,13 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./Modules/admin/admin-routing.module').then(
+        (m) => m.AdminRoutingModule
+      ),
+  },
+  {
     path: '',
     loadComponent: () =>
       import('./Modules/feature/Components/home/home.component').then(
@@ -51,7 +58,11 @@ export const routes: Routes = [
       ),
   },
   {
-    path:'order/:id',loadComponent:()=>import('./Modules/feature/Components/order-details/order-details.component').then(m=>m.OrderDetailsComponent)
+    path: 'order/:id',
+    loadComponent: () =>
+      import(
+        './Modules/feature/Components/order-details/order-details.component'
+      ).then((m) => m.OrderDetailsComponent),
   },
   //* Routing with parameters In Angular Lazy Loading
   {
