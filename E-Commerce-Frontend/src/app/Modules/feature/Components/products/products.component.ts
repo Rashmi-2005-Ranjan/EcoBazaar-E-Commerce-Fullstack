@@ -64,10 +64,10 @@ export class ProductsComponent {
     this.router.navigate([], { queryParams });
   }
 
-  handleSingleSelectFilter(value:string,sectionId:string){
-    const queryParams={...this.activatedRoute.snapshot.queryParams};
-    queryParams[sectionId]=value;
+  handleSingleSelectFilter(value: string, sectionId: string) {
+    const queryParams = { ...this.activatedRoute.snapshot.queryParams };
+    queryParams[sectionId] = value;
 
-    this.router.navigate([],{queryParams})
+    this.router.navigate([], { queryParams });
   }
 }
