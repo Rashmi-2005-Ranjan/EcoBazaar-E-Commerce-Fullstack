@@ -1,7 +1,7 @@
-<div class="product-card w-[17rem] m-3 transition-all cursor-pointer hover:scale-105 hover:shadow-lg">
+<div (click)="navigateToProductPage()" class="product-card w-[17rem] m-3 transition-all cursor-pointer hover:scale-105 hover:shadow-lg">
     <!-- Product Image Div -->
     <div class="h-[20rem] overflow-hidden">
-      <img class="h-full w-full object-cover" [src]="product.imageUrl" alt="{{ product.title }}">
+      <img class="h-full w-full object-contain" [src]="product.imageUrl" alt="{{ product.title }}">
     </div>
   
     <!-- Text Section -->
