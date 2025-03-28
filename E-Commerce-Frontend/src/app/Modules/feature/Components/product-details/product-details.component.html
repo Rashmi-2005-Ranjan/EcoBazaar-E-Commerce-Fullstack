@@ -1,1 +1,64 @@
-<p>product-details works!</p>
+<div class="p-5 lg:p-10 mt-10">
+    <p class="text-gray-500 py-10">product/clothes/women/saree</p>
+    <section class="lg:grid grid-cols-3 lg:gap-10">
+
+        <!-- *Product Image Div -->
+        <div class="col-span-2 flex items-center flex-col">
+            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/i/w/p/l-frml-st2-mayan-original-imah8yb2dgztshzs.jpeg?q=70"
+                alt="Mens Shirt">
+        </div>
+
+        <!-- *Product Details Div -->
+        <div class="col-span-1 space-y-10 mt-10 lg:mt-0">
+            <div class="space-y-2">
+                <p class="font-semibold text-gray-600 text-lg">Nofilter</p>
+                <p class="text-xl">Men Solid Pure cotton Shirt</p>
+            </div>
+
+            <!-- *Product Price Div -->
+            <div class="flex items-center space-x-5">
+                <p class="text-lg">₹393</p>
+                <p class="text-lg text-gray-700 line-through">₹2999</p>
+                <p class="text-green-400 font-semibold text-lg">80%</p>
+            </div>
+
+            <!-- *Product Description Div -->
+            <div>
+                <p class="text-lg font-semibold">Size</p>
+                <mat-radio-group 
+                class="space-x-5"
+                aria-label="Select an option"
+                [(ngModel)]="selectedSize"
+                >
+                    <mat-radio-button value="S"><span>S</span></mat-radio-button>
+                    <mat-radio-button value="M"><span>M</span></mat-radio-button>
+                    <mat-radio-button value="L"><span>L</span></mat-radio-button>
+                    <mat-radio-button value="XL"><span>XL</span></mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <button class="p-[1.5rem] w-full bg-gray-500 cursor-pointer" (click)="handleAddToCart()" mat-raised-button>Add To Cart</button>
+            </div>
+            <div>
+                <p class="text-gray-600">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas sit quis quae dolorum eos. Sit a quibusdam illo iusto ea aspernatur assumenda nostrum laudantium consequuntur.
+                </p>
+                <p class="text-gray-600">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos labore ipsa, hic, quod voluptates impedit nulla nostrum voluptas, veritatis corrupti iure? Vero ea iusto minima.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pt-20 pb-10 px-5 lg:px-20 bg-black text-white">
+        <h1 class="font-semibold text-lg pb-4">Recent Review & Rating</h1>
+    
+        <div class="p-5 space-y-5">
+            <ng-container *ngFor="let item of reviews">
+                <app-product-review-card/>  
+            </ng-container>
+        </div>
+    </section>
+    
+</div>
