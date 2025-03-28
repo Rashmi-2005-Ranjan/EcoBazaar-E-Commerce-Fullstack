@@ -69,5 +69,5 @@ export class ProductsComponent {
     queryParams[sectionId] = value;
 
     this.router.navigate([], { queryParams });
-  }
+  } 
 }
