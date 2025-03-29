@@ -7,6 +7,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
+import { CartItemComponent } from './Components/cart-item/cart-item.component';
 
 
 
@@ -20,11 +21,12 @@ import { ProductCardComponent } from './Components/product-card/product-card.com
     MatMenuModule,
     FooterComponent,
     NavbarComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CartItemComponent
   ],
   exports:[
     NavbarComponent,FooterComponent,
-    ProductCardComponent
+    ProductCardComponent,CartItemComponent
   ]
 })
 export class ShareModule { }
