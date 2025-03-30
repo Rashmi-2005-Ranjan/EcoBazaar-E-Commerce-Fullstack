@@ -66,11 +66,7 @@ Make sure to configure your `.env` or `application.properties` file for:
 4. Push to the branch
 5. Open a Pull Request
 
----
-## 📜 License
-This project is **MIT Licensed**.
 
----
 ## 📬 Contact
 For queries, reach out via **[your-email@example.com](mailto:your-email@example.com)**
 
