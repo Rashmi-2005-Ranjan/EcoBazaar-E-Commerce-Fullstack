@@ -1,0 +1,26 @@
+<div class="flex justify-between space-x-8 w-full">
+    <div *ngFor="let step of steps; let index = index; let last = last"
+        class="flex justify-between items-center space-x-5">
+
+        <!-- Step Indicator -->
+        <div [ngClass]="{
+            'bg-green-500': activeStep === step.title && step.id !== undefined && index <= step.id,
+            'bg-gray-300': activeStep !== step.title && activeStep !== 'CONFIRMED'
+          }" class="h-8 w-8 rounded-full flex justify-center items-center text-white">
+            <mat-icon>check_circle_outline</mat-icon>
+        </div>
+
+        <!-- Step Title -->
+        <span>{{ step.title }}</span>
+
+        <!-- Connector Line (Only for non-last steps) -->
+        <div *ngIf="!last" class="lg:w-[14vw]">
+            <div [ngClass]="{
+              'text-green-500': activeStep === step.title,
+              'text-gray-500': activeStep !== step.title
+            }" class="h-[1px] bg-gray-300 my-4">
+            </div>
+        </div>
+
+    </div>
+</div>
