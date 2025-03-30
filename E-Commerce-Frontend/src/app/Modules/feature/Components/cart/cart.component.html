@@ -4,7 +4,7 @@
             <div class="box p-5 space-y-3">
                 <ng-container *ngIf="cart">
                     <div *ngFor="let product of cart; let last=last">
-                        <app-cart-item />
+                        <app-cart-item showButton="true" />
                         <div *ngIf="!last" class="h-[1px] bg-gray-300 my-4"></div>
                     </div>
                 </ng-container>
