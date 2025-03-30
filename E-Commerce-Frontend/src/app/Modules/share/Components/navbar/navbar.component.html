@@ -1,55 +1,54 @@
 <div class="fixed top-0 z-50 right-0 left-0 bg-[#810081] text-gray-800 shadow-md">
-    <div class="lg:px-20 sm:px-5 h-16 flex items-center justify-between">
-      
-      <!-- Left Section: Logo + Navigation Links -->
-      <div class="flex items-center space-x-4">
-        <!-- Logo -->
-        <div>
-          <img class="h-12 w-12 rounded-full" 
-               src="https://img.freepik.com/premium-psd/shopping-cart-ecommerce-market-3d-icon_133840-7.jpg"
-               alt="EcoBazaar Logo">
-        </div>
-        <!-- Brand Name + Men/Women -->
-        <div class="flex items-center space-x-6">
-          <a class="text-green-800 text-xl font-semibold hover:underline" routerLink="/">EcoBazaar</a>
-          <button class="text-white hover:text-gray-300 transition" (click)="openNavbarContent('men')" mat-button>
-            Men
-          </button>
-          <button class="text-white hover:text-gray-300 transition" (click)="openNavbarContent('women')" mat-button>
-            Women
-          </button>
-        </div>
+  <div class="lg:px-20 sm:px-5 h-16 flex items-center justify-between">
+
+    <!-- Left Section: Logo + Navigation Links -->
+    <div class="flex items-center space-x-4">
+      <!-- Logo -->
+      <div>
+        <img class="h-12 w-12 rounded-full"
+          src="https://img.freepik.com/premium-psd/shopping-cart-ecommerce-market-3d-icon_133840-7.jpg"
+          alt="EcoBazaar Logo">
       </div>
-  
-      <!-- Right Section: Cart + User Profile -->
-      <div class="flex items-center space-x-4">
-        <!-- Cart Icon -->
-        <button (click)="navigateTo('/cart')" class="flex items-center text-white hover:text-gray-300 transition">
-          <mat-icon class="text-2xl">shopping_cart</mat-icon>
+      <!-- Brand Name + Men/Women -->
+      <div class="flex items-center space-x-6">
+        <a class="text-green-800 text-xl font-semibold hover:underline" routerLink="/">EcoBazaar</a>
+        <button class="text-white hover:text-gray-300 transition" (click)="openNavbarContent('men')" mat-button>
+          Men
         </button>
-  
-        <!-- Login Button (Hidden) -->
-        <button *ngIf="false" mat-raised-button color="accent">LOGIN</button>
-  
-        <!-- User Profile -->
-        <div *ngIf="true" class="flex items-center space-x-3">
-          <span class="font-bold text-lg text-white">Rashmi</span>
-          <button mat-button [matMenuTriggerFor]="profileMenu">
-            <img class="h-10 w-10 rounded-full border border-white"
-                 src="https://i.pinimg.com/736x/33/ba/df/33badf7bd7e2bd56b21e3d972fe3ed5a.jpg" alt="Profile">
-          </button>
-          <mat-menu #profileMenu="matMenu">
-            <button mat-menu-item>Orders</button>
-            <button mat-menu-item>Profile</button>
-            <button mat-menu-item>Logout</button>
-          </mat-menu>
-        </div>
+        <button class="text-white hover:text-gray-300 transition" (click)="openNavbarContent('women')" mat-button>
+          Women
+        </button>
       </div>
     </div>
-  
-    <!-- Dynamic Navbar Content -->
-    <div *ngIf="isNavbarContentOpen" class="absolute modal-container right-0 left-0">
-      <app-nav-content [selectedSection]="currentSection"></app-nav-content>
+
+    <!-- Right Section: Cart + User Profile -->
+    <div class="flex items-center space-x-4">
+      <!-- Cart Icon -->
+      <button (click)="navigateTo('/cart')" class="flex items-center text-white hover:text-gray-300 transition">
+        <mat-icon class="text-2xl">shopping_cart</mat-icon>
+      </button>
+
+      <!-- Login Button (Hidden) -->
+      <button *ngIf="false" mat-raised-button color="accent">LOGIN</button>
+
+      <!-- User Profile -->
+      <div *ngIf="true" class="flex items-center space-x-3">
+        <span class="font-bold text-lg text-white">Rashmi</span>
+        <button mat-button [matMenuTriggerFor]="profileMenu">
+          <img class="h-10 w-10 rounded-full border border-white"
+            src="https://i.pinimg.com/736x/33/ba/df/33badf7bd7e2bd56b21e3d972fe3ed5a.jpg" alt="Profile">
+        </button>
+        <mat-menu #profileMenu="matMenu">
+          <button (click)="navigateTo('account/orders')" mat-menu-item>Orders</button>
+          <button mat-menu-item>Profile</button>
+          <button mat-menu-item>Logout</button>
+        </mat-menu>
+      </div>
     </div>
   </div>
-  
+
+  <!-- Dynamic Navbar Content -->
+  <div *ngIf="isNavbarContentOpen" class="absolute modal-container right-0 left-0">
+    <app-nav-content [selectedSection]="currentSection"></app-nav-content>
+  </div>
+</div>

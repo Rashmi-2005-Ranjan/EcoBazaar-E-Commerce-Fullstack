@@ -1,7 +1,7 @@
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, HostListener } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, HostListener, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
 import { NavContentComponent } from './nav-content/nav-content.component';
@@ -23,6 +23,8 @@ export class NavbarComponent {
   currentSection: any;
   isNavbarContentOpen: any;
 
+  private router=inject(Router);
+
   openNavbarContent(section: any) {
     this.isNavbarContentOpen = true;
     this.currentSection = section;
@@ -30,7 +32,9 @@ export class NavbarComponent {
   closeNavbarContent() {
     this.isNavbarContentOpen = false;
   }
-  navigateTo(path: any) {}
+  navigateTo(path: any) {
+    this.router.navigate([path]);
+  }
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     const modalContainer = document.querySelector('.modal-container');
