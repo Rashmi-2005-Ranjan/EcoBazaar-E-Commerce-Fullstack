@@ -68,6 +68,6 @@ Make sure to configure your `.env` or `application.properties` file for:
 
 
 ## 📬 Contact
-For queries, reach out via **[your-email@example.com](mailto:rbstudu2022@gmail.com)**
+For queries, reach out via **[rbstudu2022@gmail.com](mailto:rbstudu2022@gmail.com)**
 
 Happy Coding! 🚀🎉
