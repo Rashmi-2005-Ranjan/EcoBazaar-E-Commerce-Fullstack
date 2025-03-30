@@ -8,6 +8,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
 import { CartItemComponent } from './Components/cart-item/cart-item.component';
+import { OrderTrackerComponent } from './Components/order-tracker/order-tracker.component';
 
 
 
@@ -22,11 +23,13 @@ import { CartItemComponent } from './Components/cart-item/cart-item.component';
     FooterComponent,
     NavbarComponent,
     ProductCardComponent,
-    CartItemComponent
+    CartItemComponent,
+    OrderTrackerComponent
   ],
   exports:[
     NavbarComponent,FooterComponent,
-    ProductCardComponent,CartItemComponent
+    ProductCardComponent,CartItemComponent,
+    OrderTrackerComponent
   ]
 })
 export class ShareModule { }
