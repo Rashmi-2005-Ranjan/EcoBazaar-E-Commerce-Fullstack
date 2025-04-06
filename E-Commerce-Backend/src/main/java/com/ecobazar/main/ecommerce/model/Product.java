@@ -46,21 +46,43 @@ public class Product {
         this.price = price;
     }
 
-    public int getDiscountPrice() {
-        return discountPrice;
-    }
 
-    public void setDiscountPrice(int discountPrice) {
-        this.discountPrice = discountPrice;
-    }
-
-    public int getDiscountPresent() {
+    public Integer getDiscountPresent() {
         return discountPresent;
     }
 
-    public void setDiscountPresent(int discountPresent) {
+    public void setDiscountPresent(Integer discountPresent) {
         this.discountPresent = discountPresent;
     }
+
+    public Product(Long id , String title , String description , int price , Integer discountedPrice , Integer discountPresent , int quantity , String brand , String color , Set<Size> sizes , String imageUrl , List<Rating> ratings , List<Review> reviews , int numRatings , Category category , LocalDateTime createdAt) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.discountedPrice = discountedPrice;
+        this.discountPresent = discountPresent;
+        this.quantity = quantity;
+        this.brand = brand;
+        this.color = color;
+        this.sizes = sizes;
+        this.imageUrl = imageUrl;
+        this.ratings = ratings;
+        this.reviews = reviews;
+        this.numRatings = numRatings;
+        this.category = category;
+        this.createdAt = createdAt;
+    }
+
+    public Integer getDiscountedPrice() {
+        return discountedPrice;
+    }
+
+    public void setDiscountedPrice(Integer discountedPrice) {
+        this.discountedPrice = discountedPrice;
+    }
+
+
 
     public int getQuantity() {
         return quantity;
@@ -142,24 +164,7 @@ public class Product {
         this.createdAt = createdAt;
     }
 
-    public Product(Long id , String title , String description , int price , int discountPrice , int discountPresent , int quantity , String brand , String color , Set<Size> sizes , String imageUrl , List<Rating> ratings , List<Review> reviews , int numRatings , Category category , LocalDateTime createdAt) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.discountPrice = discountPrice;
-        this.discountPresent = discountPresent;
-        this.quantity = quantity;
-        this.brand = brand;
-        this.color = color;
-        this.sizes = sizes;
-        this.imageUrl = imageUrl;
-        this.ratings = ratings;
-        this.reviews = reviews;
-        this.numRatings = numRatings;
-        this.category = category;
-        this.createdAt = createdAt;
-    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -172,9 +177,9 @@ public class Product {
     @Column
     private int price;
     @Column
-    private int discountPrice;
+    private Integer discountedPrice;
     @Column
-    private int discountPresent;
+    private Integer discountPresent;
     @Column
     private int quantity;
     @Column
