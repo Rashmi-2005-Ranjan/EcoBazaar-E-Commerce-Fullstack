@@ -2,10 +2,12 @@ package com.ecobazar.main.ecommerce.controllers;
 
 import com.ecobazar.main.ecommerce.config.JwtProvider;
 import com.ecobazar.main.ecommerce.exception.UserException;
+import com.ecobazar.main.ecommerce.model.Cart;
 import com.ecobazar.main.ecommerce.model.User;
 import com.ecobazar.main.ecommerce.repositories.UserRepository;
 import com.ecobazar.main.ecommerce.request.LoginRequest;
 import com.ecobazar.main.ecommerce.response.AuthResponse;
+import com.ecobazar.main.ecommerce.service.CartService;
 import com.ecobazar.main.ecommerce.service.CustomUserServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +39,8 @@ public class AuthController {
     @Autowired
     private CustomUserServiceImplementation customUserServiceImplementation;
 
+    @Autowired
+    private CartService cartService;
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws UserException {
         String email = user.getEmail();
@@ -56,6 +60,7 @@ public class AuthController {
         createdUser.setLastName(lastName);
 
         User savedUser = userRepository.save(createdUser);
+        Cart cart=cartService.createCart ( savedUser );
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(
                 savedUser.getEmail(),
