@@ -16,6 +16,5 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
             , @Param("product") Product product
             , @Param("size") String size
             , @Param("userId") Long userId
-
     );
 }

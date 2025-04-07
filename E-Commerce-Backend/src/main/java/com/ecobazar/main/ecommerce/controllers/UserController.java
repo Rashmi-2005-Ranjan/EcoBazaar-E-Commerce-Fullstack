@@ -22,5 +22,4 @@ public class UserController {
         User user = userService.findUserProfileByJwt ( jwt );
         return new ResponseEntity<> ( user , HttpStatus.ACCEPTED );
     }
-
 }
