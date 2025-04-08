@@ -17,10 +17,7 @@ public class AdminOrderController {
     @Autowired
     private OrderService orderService;
 
-
-
     // Add methods to handle admin order operations here
-
     @GetMapping("/")
     public ResponseEntity<List<Order>> getAllOrdersHandler() {
         List<Order> orders = orderService.getAllOrders ( );
@@ -37,27 +34,27 @@ public class AdminOrderController {
     @PutMapping("/{orderId}/ship")
     public ResponseEntity<Order> shippedOrderHandler(@PathVariable Long orderId , @RequestHeader("Authorization") String jwt) throws OrderException {
         Order order = orderService.shippedOrder ( orderId );
-        return new ResponseEntity<> ( order,HttpStatus.OK );
+        return new ResponseEntity<> ( order , HttpStatus.OK );
     }
 
     @PutMapping("/{orderId}/deliver")
-    public ResponseEntity<Order> deliverOrderHandler(@PathVariable Long orderId,@RequestHeader("Authorization") String jwt) throws OrderException{
-        Order order=orderService.deliveredOrder ( orderId );
-        return new ResponseEntity<> ( order,HttpStatus.OK );
+    public ResponseEntity<Order> deliverOrderHandler(@PathVariable Long orderId , @RequestHeader("Authorization") String jwt) throws OrderException {
+        Order order = orderService.deliveredOrder ( orderId );
+        return new ResponseEntity<> ( order , HttpStatus.OK );
     }
 
     @PutMapping("/{orderId}/cancel")
-    public ResponseEntity<Order> cancelOrderHandler(@PathVariable Long orderId,@RequestHeader("Authorization") String jwt) throws OrderException{
-        Order order=orderService.cancelOrder ( orderId );
-        return new ResponseEntity<> ( order,HttpStatus.OK );
+    public ResponseEntity<Order> cancelOrderHandler(@PathVariable Long orderId , @RequestHeader("Authorization") String jwt) throws OrderException {
+        Order order = orderService.cancelOrder ( orderId );
+        return new ResponseEntity<> ( order , HttpStatus.OK );
     }
 
     @DeleteMapping("{orderId}/delete")
-    public ResponseEntity<ApiResponse> deleteOrderHandler(@PathVariable Long orderId, @RequestHeader("Authorization")String jwt)throws OrderException{
+    public ResponseEntity<ApiResponse> deleteOrderHandler(@PathVariable Long orderId , @RequestHeader("Authorization") String jwt) throws OrderException {
         orderService.deleteOrder ( orderId );
-        ApiResponse apiResponse=new ApiResponse (  );
+        ApiResponse apiResponse = new ApiResponse ( );
         apiResponse.setMessage ( "Order Deleted Successfully" );
         apiResponse.setStatus ( true );
-        return new ResponseEntity<> ( apiResponse,HttpStatus.OK );
+        return new ResponseEntity<> ( apiResponse , HttpStatus.OK );
     }
 }
