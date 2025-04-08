@@ -17,12 +17,14 @@ public class AdminOrderController {
     @Autowired
     private OrderService orderService;
 
+
+
     // Add methods to handle admin order operations here
 
     @GetMapping("/")
     public ResponseEntity<List<Order>> getAllOrdersHandler() {
         List<Order> orders = orderService.getAllOrders ( );
-        return new ResponseEntity<List<Order>> ( orders , HttpStatus.ACCEPTED );
+        return new ResponseEntity<> ( orders , HttpStatus.ACCEPTED );
     }
 
     //Used For Updating Order Status
