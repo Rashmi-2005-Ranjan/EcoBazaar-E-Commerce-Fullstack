@@ -1,2 +1,9 @@
-package com.ecobazar.main.ecommerce.repositories;public interface OrderItemRepository {
+package com.ecobazar.main.ecommerce.repositories;
+
+import com.ecobazar.main.ecommerce.model.OrderItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OrderItemRepository extends JpaRepository<OrderItem,Long> {
 }
