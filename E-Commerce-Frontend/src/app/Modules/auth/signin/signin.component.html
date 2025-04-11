@@ -1,12 +1,46 @@
 <div>
-    <form>
-        <h1>EcoBazaar</h1>
+    <form [formGroup]="loginform">
+      <h1>EcoBazaar</h1>
+  
+      <div>
+<!-- Email -->
+<mat-form-field class="w-full">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" required />
+    <mat-error *ngIf="loginform.controls['email'].hasError('required')">
+      Email is Required
+    </mat-error>
+    <mat-error *ngIf="loginform.controls['email'].hasError('email')">
+      Enter a Valid Email
+    </mat-error>
+  </mat-form-field>
+  
+  <!-- Password -->
+  <mat-form-field class="w-full">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" required />
+    <mat-error *ngIf="loginform.controls['password'].hasError('required')">
+      Password is Required
+    </mat-error>
+    <mat-error *ngIf="loginform.controls['password'].hasError('minlength')">
+      Password must be at least 8 characters long
+    </mat-error>
+  </mat-form-field>
+  
+  
         <div>
-            <mat-form-field class="w-full">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" required/>
-                mat
-            </mat-form-field>
+          <button style="padding:1.7rem" mat-raised-button class="w-full" color="accent">
+            LOGIN
+          </button>
         </div>
+  
+        <div>
+          <span>If You Don't Have Account?</span>
+          <button (click)="changeTemplate()" style="padding:1.7rem" mat-raised-button class="w-full" color="accent">
+            REGISTER
+          </button>
+        </div>
+      </div>
     </form>
-</div>
+  </div>
+  
