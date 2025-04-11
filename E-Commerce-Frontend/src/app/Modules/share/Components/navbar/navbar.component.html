@@ -29,10 +29,10 @@
       </button>
 
       <!-- Login Button (Hidden) -->
-      <button *ngIf="false" mat-raised-button color="accent">LOGIN</button>
+      <button (click)="handleOpenLoginModel()" *ngIf="true" mat-raised-button color="accent">LOGIN</button>
 
       <!-- User Profile -->
-      <div *ngIf="true" class="flex items-center space-x-3">
+      <div *ngIf="false" class="flex items-center space-x-3">
         <span class="font-bold text-lg text-white">Rashmi</span>
         <button mat-button [matMenuTriggerFor]="profileMenu">
           <img class="h-10 w-10 rounded-full border border-white"

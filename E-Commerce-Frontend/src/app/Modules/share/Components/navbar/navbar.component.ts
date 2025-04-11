@@ -1,11 +1,12 @@
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject, Injectable } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
 import { NavContentComponent } from './nav-content/nav-content.component';
-
+import {MatDialog} from '@angular/material/dialog';
+import { AuthComponent } from '../../../auth/auth.component';
 @Component({
   selector: 'app-navbar',
   imports: [
@@ -51,5 +52,13 @@ export class NavbarComponent {
     if (modalContainer && !clickInsideButton && this.isNavbarContentOpen) {
       this.closeNavbarContent();
     }
+  }
+
+  private dialogue=inject(MatDialog);
+  handleOpenLoginModel=()=>{
+    this.dialogue.open(AuthComponent,{
+      width:"400px",
+      disableClose:false
+    })
   }
 }
