@@ -24,16 +24,16 @@
     <!-- Right Section: Cart + User Profile -->
     <div class="flex items-center space-x-4">
       <!-- Cart Icon -->
-      <button (click)="navigateTo('/cart')" class="flex items-center text-white hover:text-gray-300 transition">
+      <button (click)="navigateTo('/cart')" class="flex items-center text-white hover:text-gray-300 transition cursor-pointer">
         <mat-icon class="text-2xl">shopping_cart</mat-icon>
       </button>
 
       <!-- Login Button (Hidden) -->
-      <button (click)="handleOpenLoginModel()" *ngIf="true" mat-raised-button color="accent">LOGIN</button>
+      <button (click)="handleOpenLoginModel()" *ngIf="!userProfile" mat-raised-button color="accent">LOGIN</button>
 
       <!-- User Profile -->
-      <div *ngIf="false" class="flex items-center space-x-3">
-        <span class="font-bold text-lg text-white">Rashmi</span>
+      <div *ngIf="userProfile" class="flex items-center space-x-3">
+        <span class="font-bold text-lg text-white">{{userProfile.firstName}}</span>
         <button mat-button [matMenuTriggerFor]="profileMenu">
           <img class="h-10 w-10 rounded-full border border-white"
             src="https://i.pinimg.com/736x/33/ba/df/33badf7bd7e2bd56b21e3d972fe3ed5a.jpg" alt="Profile">
@@ -41,7 +41,7 @@
         <mat-menu #profileMenu="matMenu">
           <button (click)="navigateTo('account/orders')" mat-menu-item>Orders</button>
           <button mat-menu-item>Profile</button>
-          <button mat-menu-item>Logout</button>
+          <button mat-menu-item (click)="handleLogout()">Logout</button>
         </mat-menu>
       </div>
     </div>
