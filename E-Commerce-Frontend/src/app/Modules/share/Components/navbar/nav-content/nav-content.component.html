@@ -1,26 +1,31 @@
 <div class="w-full">
-    <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
-      <div class="flex justify-around">
-        <div class="flex flex-col" *ngFor="let item of category [selectedSection].sections">
-          <h1 class="text-center">{{ item.name }}</h1>
+  <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
+    <div class="flex justify-around">
+      <div class="flex flex-col" *ngFor="let item of category [selectedSection].sections">
+        <h1 class="text-center">{{ item.name }}</h1>
 
-          <button mat-button *ngFor="let section of item.items">
-            {{section.name}}
-          </button>
+        <button class="cursor-pointer"
+          (click)="handleNavigate('/' + selectedSection + '/' + (item.id) + '/' + (section.id))" mat-button
+          *ngFor="let section of item.items">
+          {{section.name}}
+        </button>
+      </div>
+
+      <div class="hidden lg:block">
+        <div class="mb-5">
+          <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md"
+            src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/814b8ff4-1dec-4a6e-86b8-c26f5c40fe4c1598892518923-Biba.jpg"
+            alt="NewArrival">
         </div>
-
-        <div class="hidden lg:block">
-          <div class="mb-5">
-            <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/814b8ff4-1dec-4a6e-86b8-c26f5c40fe4c1598892518923-Biba.jpg" alt="NewArrival">
-          </div>
         <p class="text-gray-600">New Arrival</p>
       </div>
       <div class="hidden lg:block">
         <div class="mb-5">
-          <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/581e2bf6-6d47-4a4b-a11f-43200dc9c6791598892519362-Puma.jpg" alt="NewArrival">
+          <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md"
+            src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/581e2bf6-6d47-4a4b-a11f-43200dc9c6791598892519362-Puma.jpg"
+            alt="NewArrival">
         </div>
-      <p class="text-gray-600">New Arrival</p>
-    </div>
+        <p class="text-gray-600">New Arrival</p>
+      </div>
     </div>
   </div>
-  
