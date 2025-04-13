@@ -12,6 +12,6 @@ export class ProductCardComponent {
   @Input() product: any;
   private router = inject(Router);
   navigateToProductPage() {
-    this.router.navigate([`/product-details/5}`]);
+    this.router.navigate([`/product-details/${this.product.id}}`]);
   }
 }
