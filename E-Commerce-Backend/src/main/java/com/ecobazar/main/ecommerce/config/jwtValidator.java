@@ -18,33 +18,47 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class jwtValidator extends OncePerRequestFilter {
+    private static final Logger logger = Logger.getLogger(jwtValidator.class.getName());
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request , HttpServletResponse response , FilterChain filterChain)
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        String jwt = request.getHeader ( JwtConstant.JWT_HEADER );
-        if (jwt != null) {
-            // Check if the JWT starts with "Bearer " which is the standard prefix of JWT with 7 characters
-            jwt = jwt.substring ( 7 );
+        String jwtHeader = request.getHeader(JwtConstant.JWT_HEADER);
+        String jwt = null;
+
+        if (jwtHeader != null && jwtHeader.startsWith("Bearer ")) {
+            jwt = jwtHeader.substring(7);
+            logger.info("Validating token: " + jwt.substring(0, Math.min(jwt.length(), 10)) + "...");
+
             try {
-                SecretKey key = Keys.hmacShaKeyFor ( JwtConstant.SECRET_KEY.getBytes ( ) );
-                Claims claims = Jwts.parserBuilder ( )
-                        .setSigningKey ( key )
-                        .build ( )
-                        .parseClaimsJws ( jwt )
-                        .getBody ( );
+                SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
+                Claims claims = Jwts.parserBuilder()
+                        .setSigningKey(key)
+                        .build()
+                        .parseClaimsJws(jwt)
+                        .getBody();
 
-                String email = String.valueOf ( claims.get ( "email" ) );
-                String authorities = String.valueOf ( claims.get ( "authorities" ) );
+                String email = String.valueOf(claims.get("email"));
+                String authorities = String.valueOf(claims.get("authorities"));
 
-                List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList ( authorities );
-                Authentication authentication = new UsernamePasswordAuthenticationToken ( email , null , auths );
-                SecurityContextHolder.getContext ( ).setAuthentication ( authentication );
+                List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
+                Authentication authentication = new UsernamePasswordAuthenticationToken(email, null, auths);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+
+                filterChain.doFilter(request, response);
             } catch (Exception e) {
-                throw new BadCredentialsException ( "Invalid JWT Token" );
+                logger.severe("Failed to validate token: " + e.getMessage());
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401
+                response.setContentType("application/json");
+                response.getWriter().write("{\"message\": \"Invalid or expired token\"}");
+                return;
             }
+        } else {
+            logger.info("No JWT token provided in request");
+            filterChain.doFilter(request, response); // Proceed without auth
         }
-        filterChain.doFilter ( request , response );
     }
 }
