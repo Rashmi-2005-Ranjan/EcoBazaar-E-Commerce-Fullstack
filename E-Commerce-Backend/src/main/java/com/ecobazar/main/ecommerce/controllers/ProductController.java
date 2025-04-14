@@ -18,19 +18,18 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<Page<Product>> findProducByCategoryHandler
-            (
-                    @RequestParam String category ,
-                    @RequestParam List<String> color ,
-                    @RequestParam List<String> size ,
-                    @RequestParam Integer minPrice ,
-                    @RequestParam Integer maxPrice ,
-                    @RequestParam Integer minDiscount ,
-                    @RequestParam String sort ,
-                    @RequestParam String stock ,
-                    @RequestParam Integer pageNumber ,
-                    @RequestParam Integer pageSize
-            ) {
+    public ResponseEntity<Page<Product>> findProductByCategoryHandler(
+            @RequestParam(required = true) String category,  // Required
+            @RequestParam(required = false, defaultValue = "") List<String> color,
+            @RequestParam(required = false, defaultValue = "") List<String> size,
+            @RequestParam(defaultValue = "0") Integer minPrice,
+            @RequestParam(defaultValue = "10000") Integer maxPrice,
+            @RequestParam(defaultValue = "0") Integer minDiscount,
+            @RequestParam(required = false) String sort,      // Optional
+            @RequestParam(required = false) String stock,     // Optional
+            @RequestParam(defaultValue = "0") Integer pageNumber,
+            @RequestParam(defaultValue = "10") Integer pageSize
+    ) {
         Page<Product> res = productService.getAllProducts ( category , color , size , minPrice , maxPrice , minDiscount , sort , stock , pageNumber , pageSize );
         return new ResponseEntity<> ( res , HttpStatus.ACCEPTED );
     }
