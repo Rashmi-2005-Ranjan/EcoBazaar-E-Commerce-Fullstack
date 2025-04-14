@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,7 +59,7 @@ public class ProductServiceImplementation implements ProductService {
         product.setTitle ( req.getTitle ( ) );
         product.setDescription ( req.getDescription ( ) );
         product.setPrice ( req.getPrice ( ) );
-        product.setDiscountedPrice ( req.getDiscountedPrice () );
+        product.setDiscountedPrice ( req.getDiscountedPrice ( ) );
         product.setDiscountPresent ( req.getDiscountPercent ( ) );
         product.setQuantity ( req.getQuantity ( ) );
         product.setBrand ( req.getBrand ( ) );
@@ -116,11 +117,12 @@ public class ProductServiceImplementation implements ProductService {
             int pageNo ,
             int pageSize
     ) {
+        colors = colors != null ? colors : Collections.emptyList ( );
+        sizes = sizes != null ? sizes : Collections.emptyList ( );
+
         Pageable pageable = PageRequest.of ( pageNo , pageSize );
         List<Product> products = productRepository.filterProducts ( category , minPrice , maxPrice , minDiscount , sort );
-        if (!colors.isEmpty ( )) {
-            products = products.stream ( ).filter ( p -> colors.stream ( ).anyMatch ( c -> c.equalsIgnoreCase ( p.getColor ( ) ) ) ).collect ( Collectors.toList ( ) );
-        }
+
         if (stock != null) {
             if (stock.equals ( "in_stock" )) {
                 products = products.stream ( ).filter ( p -> p.getQuantity ( ) > 0 ).collect ( Collectors.toList ( ) );
